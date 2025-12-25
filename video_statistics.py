@@ -1,9 +1,13 @@
 import requests
 import json
+import os 
+from dotenv import load_dotenv
 
-API_KEY = "AIzaSyDB-Y2qADKD2LXtvNZ2VeA27LRywNe40eU"
+
+load_dotenv(dotenv_path="./.env")
+
+API_KEY = os.getenv("API_KEY")
 CHANNEL_HANDLE = "MrBeast"
-
 
 def get_playlist():
 
@@ -19,10 +23,10 @@ def get_playlist():
 
     except requests.exceptions.RequestException as e:
         raise e
+    
 
 if __name__ == "__main__":
-    id = get_playlist()
-    print(id)
+    print(get_playlist())
 
 
 
